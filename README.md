@@ -26,7 +26,3 @@ Discover-Lab es una plataforma en línea que proporciona un espacio centralizado
 - Fomentar la colaboración y el intercambio de conocimientos.
 - Crear oportunidades de conexión entre emprendedores y colaboradores.
 - Proporcionar recursos y eventos relevantes para la comunidad.
-
-En resumen, Discover-Lab es una plataforma dinámica y colaborativa que conecta a emprendedores, creadores y entusiastas de proyectos para descubrir nuevas ideas, colaborar en proyectos emocionantes y aprovechar el poder de la comunidad para impulsar la innovación.
-
-Por favor, ten en cuenta que esta es solo una idea inicial y puedes adaptarla y personalizarla según tus necesidades y visión para el proyecto Discover-Lab. ¡Espero que te sea útil!
