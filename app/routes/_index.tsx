@@ -12,8 +12,8 @@ export const meta: V2_MetaFunction = () => {
 
 export default function Index() {
   return (
-    <div>
-      <h1>Working...</h1>
+    <div className="flex items-center justify-center min-h-screen">
+      <h1 className="font-bold text-2xl">Working...</h1>
     </div>
   );
 }
