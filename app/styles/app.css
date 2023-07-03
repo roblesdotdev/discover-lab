@@ -1,13 +1,15 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+:root {
+  color-scheme: dark light;
 
-@layer base {
-  :root {
-    color-scheme: dark light;
-  }
+  --canvas-default: 16 18 25;
+  --canvas-muted: 24 27 37;
+  --canvas-variant: 32 36 50;
 
-  body {
-    @apply min-h-screen bg-[#121212] text-[#fafafa] antialiased;
-  }
+  --fg-default: 248 248 248;
+  --fg-muted: 193 198 215;
+
+  --primary: 48 67 144;
+  --primary-variant: 52 73 156;
+
+  --on-primary: var(--fg-default);
 }

@@ -12,8 +12,18 @@ export const meta: V2_MetaFunction = () => {
 
 export default function Index() {
   return (
-    <div className="flex min-h-screen items-center justify-center">
-      <h1 className="text-2xl font-bold">Working...</h1>
+    <div className="flex min-h-screen flex-col items-center justify-center gap-4 px-4">
+      <div className="mx-auto flex max-w-2xl flex-col items-center">
+        <h1 className="text-2xl font-bold">Working...</h1>
+        <p className="text-fg-muted">
+          Donec quam urna, rutrum nec velit in, consequat efficitur nulla. Nunc
+          consequat posuere felis, non egestas ligula imperdiet sit amet.
+        </p>
+      </div>
+
+      <button className="rounded-md bg-primary px-6 py-3 text-on-primary hover:bg-primary-variant">
+        Click Me
+      </button>
     </div>
   )
 }
