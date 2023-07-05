@@ -13,6 +13,7 @@
     "validate": "run-s typecheck lint build"
   },
   "dependencies": {
+    "@prisma/client": "^4.16.2",
     "@remix-run/css-bundle": "^1.18.0",
     "@remix-run/node": "^1.18.0",
     "@remix-run/react": "^1.18.0",
@@ -22,6 +23,7 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@faker-js/faker": "^8.0.2",
     "@remix-run/dev": "^1.18.0",
     "@remix-run/eslint-config": "^1.18.0",
     "@types/react": "^18.0.35",
@@ -35,10 +37,15 @@
     "postcss": "^8.4.24",
     "prettier": "^2.8.8",
     "prettier-plugin-tailwindcss": "^0.3.0",
+    "prisma": "^4.16.2",
     "tailwindcss": "^3.3.2",
+    "tsx": "^3.12.7",
     "typescript": "^5.0.4"
   },
   "engines": {
-    "node": ">=14.0.0"
+    "node": ">=18.0.0"
+  },
+  "prisma": {
+    "seed": "tsx prisma/seed"
   }
 }
