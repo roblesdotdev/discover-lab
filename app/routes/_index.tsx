@@ -1,4 +1,10 @@
-import type { V2_MetaFunction } from '@remix-run/node'
+import {
+  json,
+  type LoaderFunction,
+  type V2_MetaFunction,
+} from '@remix-run/node'
+import { useLoaderData } from '@remix-run/react'
+import { db } from '~/utils/db.server'
 
 export const meta: V2_MetaFunction = () => {
   return [
@@ -10,14 +16,30 @@ export const meta: V2_MetaFunction = () => {
   ]
 }
 
+type LoaderData = {
+  totalProducts: number
+}
+
+export const loader: LoaderFunction = async () => {
+  const totalProducts = await db.product.count()
+  return json<LoaderData>({
+    totalProducts: totalProducts,
+  })
+}
+
 export default function Index() {
+  const { totalProducts } = useLoaderData<LoaderData>()
+
   return (
     <div className="flex min-h-screen flex-col items-center justify-center gap-4 px-4">
-      <div className="mx-auto flex max-w-2xl flex-col items-center text-center">
-        <h1 className="text-2xl font-bold">Trabajo en progreso</h1>
-        <p className="text-fg-muted">
-          Pronto estaremos en línea para sorprenderte. ¡Gracias por tu
-          paciencia!
+      <div className="mx-auto flex max-w-2xl flex-col items-center gap-1 text-center">
+        <span className="rounded-md bg-fg/10 px-3 py-2 text-xs">
+          Database: {totalProducts}
+        </span>
+        <h1 className="text-2xl font-bold sm:text-3xl">Trabajo en progreso</h1>
+        <p className="text-fg-muted/90 sm:text-lg">
+          Pronto estaremos en línea para sorprenderte. <br />
+          ¡Gracias por tu paciencia!
         </p>
         <a
           className="mt-4 underline"

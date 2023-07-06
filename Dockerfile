@@ -7,18 +7,15 @@ LABEL fly_launch_runtime="Remix"
 
 # Install openssl for Prisma
 RUN apt-get update && apt-get install -y openssl sqlite3
-
-# PNPM
-ARG PNPM_VERSION=8.6.6
-RUN npm install -g pnpm@$PNPM_VERSION
+RUN npm i -g npm@latest
 
 # Install all node_modules, including dev dependencies
 FROM base as deps
 
 WORKDIR /app
 
-ADD package.json pnpm-lock.yaml .npmrc ./
-RUN pnpm install --frozen-lockfile --prod=false
+ADD package.json .npmrc ./
+RUN npm install --include=dev
 
 # Setup production node_modules
 FROM base as production-deps
@@ -27,7 +24,7 @@ WORKDIR /app
 
 COPY --from=deps /app/node_modules /app/node_modules
 ADD package.json .npmrc ./
-RUN pnpm prune --prod
+RUN npm prune --omit=dev
 
 # Build the app
 FROM base as build
@@ -40,7 +37,7 @@ ADD prisma .
 RUN npx prisma generate
 
 ADD . .
-RUN pnpm build
+RUN npm run build
 
 # Finally, build the production image with minimal footprint
 FROM base
@@ -60,6 +57,7 @@ COPY --from=build /app/node_modules/.prisma /app/node_modules/.prisma
 COPY --from=build /app/build /app/build
 COPY --from=build /app/public /app/public
 COPY --from=build /app/package.json /app/package.json
+COPY --from=build /app/scripts/start.sh /app/start.sh
 COPY --from=build /app/prisma /app/prisma
 
 ENTRYPOINT [ "./start.sh" ]
