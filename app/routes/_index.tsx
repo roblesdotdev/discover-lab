@@ -13,17 +13,21 @@ export const meta: V2_MetaFunction = () => {
 export default function Index() {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center gap-4 px-4">
-      <div className="mx-auto flex max-w-2xl flex-col items-center">
-        <h1 className="text-2xl font-bold">Working...</h1>
+      <div className="mx-auto flex max-w-2xl flex-col items-center text-center">
+        <h1 className="text-2xl font-bold">Trabajo en progreso</h1>
         <p className="text-fg-muted">
-          Donec quam urna, rutrum nec velit in, consequat efficitur nulla. Nunc
-          consequat posuere felis, non egestas ligula imperdiet sit amet.
+          Pronto estaremos en línea para sorprenderte. ¡Gracias por tu
+          paciencia!
         </p>
+        <a
+          className="mt-4 underline"
+          href="https://github.com/roblesdotdev/discover-lab"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Repositorio
+        </a>
       </div>
-
-      <button className="rounded-md bg-primary px-6 py-3 text-on-primary hover:bg-primary-variant">
-        Click Me
-      </button>
     </div>
   )
 }

@@ -4,8 +4,6 @@ node_modules
 /build
 /public/build
 .env
+.env.local
 
 tsconfig.tsbuildinfo
-
-/prisma/*.db
-/prisma/*.sqlite
