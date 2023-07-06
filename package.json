@@ -46,6 +46,6 @@
     "node": ">=18.0.0"
   },
   "prisma": {
-    "seed": "tsx prisma/seed"
+    "seed": "npx tsx prisma/seed"
   }
 }
